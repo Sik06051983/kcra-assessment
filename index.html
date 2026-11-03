@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123b5d">
+<meta name="description" content="Assessment kesiapan hilirisasi pengetahuan hasil penelitian.">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>KCRA — Knowledge Commercialization Readiness Assessment</title>
+<style>
+:root{--navy:#123b5d;--blue:#176b87;--teal:#2a9d8f;--ink:#203040;--muted:#627383;--line:#dce5eb;--bg:#f3f7fa;--white:#fff;--amber:#a86700;--red:#a93232}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:linear-gradient(120deg,#123b5d,#176b87);color:#fff;padding:34px 20px 28px}
+.wrap{max-width:980px;margin:auto;padding:0 18px}
+.kicker{font-size:12px;letter-spacing:.13em;text-transform:uppercase;opacity:.8;font-weight:700}
+h1{font-size:clamp(25px,4vw,38px);line-height:1.15;margin:8px 0}
+header p{max-width:720px;margin:10px 0 0;color:#e4f0f5}
+main{padding:24px 0 50px}.notice{background:#eaf3f7;border-left:4px solid var(--blue);padding:13px 16px;border-radius:8px;margin-bottom:20px;color:#28485a}
+.card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px;margin:16px 0;box-shadow:0 3px 12px #18364a0a}
+h2{font-size:20px;margin:0 0 5px;color:var(--navy)}h3{font-size:16px;margin:0 0 5px}
+.sub{color:var(--muted);font-size:13px;margin:0 0 17px}
+label{display:block;font-weight:650;margin:14px 0 6px}
+input,textarea,select{width:100%;border:1px solid #cbd7df;border-radius:8px;padding:11px 12px;font:inherit;background:#fff;color:var(--ink)}
+textarea{min-height:75px;resize:vertical}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.dimension{border-top:1px solid var(--line);padding-top:18px;margin-top:18px}
+.scale{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:10px 0}
+.scale label{margin:0;border:1px solid var(--line);border-radius:9px;padding:9px 5px;text-align:center;font-size:13px;font-weight:500;cursor:pointer}
+.scale input{width:auto;margin:0 4px 0 0;accent-color:var(--blue)}
+.hint{font-size:12px;color:var(--muted);margin-top:5px}
+button{border:0;border-radius:9px;padding:12px 18px;font:inherit;font-weight:700;cursor:pointer}
+.primary{background:var(--navy);color:white}.secondary{background:#e8f0f4;color:var(--navy)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.result{display:none}.scoreline{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin:15px 0}
+.score{font-size:46px;font-weight:800;color:var(--navy);line-height:1}
+.status{padding:7px 12px;border-radius:30px;font-weight:750;background:#e6f4ed;color:#176b43}
+.status.warn{background:#fff2d9;color:#875600}.status.no{background:#fce8e8;color:#9b2929}
+.bar{height:10px;background:#e8eef2;border-radius:20px;overflow:hidden}.bar span{display:block;height:100%;background:var(--teal);width:0}
+.result-row{padding:12px 0;border-bottom:1px solid var(--line)}.result-row:last-child{border:0}
+.result-row p{margin:5px 0;color:var(--muted);font-size:14px}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+.smallprint{font-size:12px;color:var(--muted)}
+@media(max-width:650px){.grid{grid-template-columns:1fr}.card{padding:17px}.scale{gap:4px}.scale label{font-size:11px;padding:8px 2px}}
+@media print{body{background:#fff}.no-print,header .kicker{display:none!important}.card{box-shadow:none;break-inside:avoid}header{padding:18px;background:#fff;color:#123b5d}header p{color:#334}main{padding:0}.result{display:block!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<div class="kicker">Public assessment tool · Version 1.0</div>
+<h1>Knowledge Commercialization<br>Readiness Assessment</h1>
+<p>Instrumen awal untuk menilai kesiapan pengetahuan yang dihasilkan dari penelitian agar dapat dimanfaatkan oleh pengguna, organisasi, industri, pemerintah, atau masyarakat.</p>
+</div></header>
+<main class="wrap">
+<div class="notice"><b>Petunjuk:</b> Isi informasi penelitian, kemudian nilai setiap dimensi berdasarkan bukti yang tersedia. Gunakan skala 1–5. Penilaian ini merupakan self-assessment awal, bukan sertifikasi atau keputusan pendanaan.</div>
+
+<form id="assessment">
+<section class="card">
+<h2>Informasi hasil penelitian</h2><p class="sub">Informasi dasar untuk mengidentifikasi objek assessment.</p>
+<div class="grid">
+<div><label for="title">Judul/nama hasil penelitian *</label><input id="title" required placeholder="Masukkan judul penelitian atau nama inovasi"></div>
+<div><label for="researcher">Peneliti/tim/organisasi</label><input id="researcher" placeholder="Nama peneliti atau institusi"></div>
+<div><label for="field">Bidang penelitian</label><input id="field" placeholder="Contoh: pangan, kesehatan, energi"></div>
+<div><label for="year">Tahun penelitian</label><input id="year" type="number" min="1900" max="2100" placeholder="2026"></div>
+</div>
+<label for="summary">Ringkasan pengetahuan/hasil penelitian *</label><textarea id="summary" required placeholder="Jelaskan temuan, metode/produk/pengetahuan utama yang dihasilkan."></textarea>
+</section>
+
+<section class="card">
+<h2>Dimensi penilaian kesiapan</h2><p class="sub">Pilih satu skor pada setiap dimensi dan tuliskan bukti atau alasan penilaian.</p>
+<div id="dimensions"></div>
+<div class="smallprint">Skala umum: 1 = sangat belum memadai; 2 = belum memadai; 3 = cukup; 4 = memadai; 5 = sangat memadai. Berikan skor berdasarkan bukti, bukan harapan.</div>
+<div class="actions no-print"><button class="primary" type="submit">Hitung hasil assessment</button><button class="secondary" type="reset" id="reset">Reset formulir</button></div>
+</section>
+</form>
+
+<section class="card result" id="result" aria-live="polite">
+<h2>Hasil assessment</h2><p class="sub">Ringkasan skor dan rekomendasi berdasarkan jawaban yang diberikan.</p>
+<div class="scoreline"><div class="score" id="total">—</div><div><div class="status" id="status">—</div><div class="smallprint">Skor keseluruhan dari 100</div></div></div>
+<div class="bar"><span id="overallbar"></span></div>
+<p id="interpretation"></p>
+<h3 style="margin-top:22px">Rincian per dimensi</h3><div id="breakdown"></div>
+<h3 style="margin-top:22px">Prioritas perbaikan</h3><div id="priorities"></div>
+<div class="actions no-print"><button class="primary" type="button" onclick="window.print()">Cetak / simpan sebagai PDF</button><button class="secondary" type="button" id="download">Unduh hasil (JSON)</button></div>
+<p class="smallprint">Catatan: skor dan ambang kategori pada versi ini adalah rancangan operasional awal. Validasi melalui expert judgement, uji coba pengguna, dan pengujian empiris diperlukan sebelum digunakan sebagai instrumen resmi.</p>
+</section>
+</main>
+<footer>KCRA · Knowledge Commercialization Readiness Assessment · Versi 1.0</footer>
+<script>
+const dims=[
+{id:"purpose",title:"A. Kejelasan tujuan penggunaan",desc:"Seberapa jelas masalah/kebutuhan yang akan diselesaikan dan bentuk pemanfaatan hasil penelitian?",guide:"Tujuan pemanfaatan dirumuskan spesifik; masalah/kebutuhan yang dituju teridentifikasi; bentuk penggunaan atau perubahan yang diharapkan dijelaskan.",rec:"Perjelas masalah yang hendak diselesaikan, tujuan penggunaan, bentuk pemanfaatan, serta hasil/manfaat yang ditargetkan."},
+{id:"user",title:"B. Kejelasan pengguna/pemanfaat",desc:"Seberapa jelas pihak yang akan menggunakan, mengadopsi, membeli, menerapkan, atau memperoleh manfaat dari hasil penelitian?",guide:"Kelompok pengguna teridentifikasi; kebutuhan dan karakteristiknya dipahami; ada bukti komunikasi, minat, atau keterlibatan calon pengguna.",rec:"Identifikasi pengguna utama dan pengambil keputusan; lakukan wawancara/validasi kebutuhan; dokumentasikan minat atau komitmen calon pengguna."},
+{id:"internal",title:"C. Kecukupan validitas internal",desc:"Seberapa kuat bukti bahwa temuan penelitian dapat dipercaya dan kesimpulan didukung oleh desain serta data?",guide:"Desain dan metode sesuai dengan pertanyaan penelitian; instrumen/prosedur memadai; kualitas data dan analisis diperiksa; bias, keterbatasan, serta alternatif penjelasan dipertimbangkan.",rec:"Perkuat desain dan prosedur penelitian; uji kualitas instrumen/pengukuran; periksa kualitas data dan ketepatan analisis; jelaskan keterbatasan dan potensi bias."},
+{id:"external",title:"D. Kecukupan validitas eksternal",desc:"Seberapa kuat dasar untuk menerapkan temuan pada populasi, lokasi, organisasi, atau kondisi selain konteks penelitian?",guide:"Populasi/konteks sasaran pemanfaatan jelas; kesesuaian karakteristik sampel dan konteks dijelaskan; ada replikasi, uji lapangan, atau bukti transferabilitas yang relevan.",rec:"Uji hasil pada populasi/lokasi/pengguna sasaran; lakukan replikasi atau pilot project; jelaskan batas generalisasi dan kondisi yang diperlukan untuk penerapan."}
+];
+const host=document.getElementById("dimensions");
+dims.forEach((d,i)=>{
+ const el=document.createElement("div");el.className="dimension";
+ el.innerHTML=`<h3>${d.title}</h3><p class="sub">${d.desc}</p><div class="hint"><b>Hal yang dapat dipertimbangkan:</b> ${d.guide}</div><label>Skor kesiapan *</label><div class="scale">${[1,2,3,4,5].map(n=>`<label><input type="radio" name="${d.id}" value="${n}" required>${n}</label>`).join("")}</div><div class="hint">1 Sangat belum memadai · 2 Belum memadai · 3 Cukup · 4 Memadai · 5 Sangat memadai</div><label for="e-${d.id}">Bukti/alasan pemberian skor</label><textarea id="e-${d.id}" placeholder="Tuliskan bukti, dokumen, hasil uji, atau alasan penilaian..."></textarea>`;
+ host.appendChild(el);
+});
+let latest=null;
+document.getElementById("assessment").addEventListener("submit",e=>{
+ e.preventDefault();
+ const scores=dims.map(d=>({id:d.id,title:d.title,score:Number(document.querySelector(`input[name="${d.id}"]:checked`).value),evidence:document.getElementById(`e-${d.id}`).value.trim(),recommendation:d.rec}));
+ const total=Math.round(scores.reduce((a,b)=>a+b.score,0)/20*100);
+ let label,cls,interp;
+ if(total>=80){label="SIAP HILIRISASI";cls="";interp="Secara umum, hasil penelitian menunjukkan kesiapan yang baik pada empat dimensi yang dinilai. Tetap periksa dimensi dengan skor terendah dan pastikan bukti pendukung tersedia."}
+ else if(total>=60){label="SIAP DENGAN PERBAIKAN";cls="warn";interp="Hasil penelitian memiliki fondasi untuk diarahkan menuju hilirisasi, tetapi masih memerlukan perbaikan terarah pada dimensi yang belum memadai."}
+ else{label="BELUM SIAP HILIRISASI";cls="no";interp="Hasil penelitian masih memerlukan penguatan mendasar sebelum didorong ke tahap hilirisasi. Prioritaskan dimensi dengan skor terendah."}
+ latest={app:"KCRA",version:"1.0",date:new Date().toISOString(),project:{title:document.getElementById("title").value,researcher:document.getElementById("researcher").value,field:document.getElementById("field").value,year:document.getElementById("year").value,summary:document.getElementById("summary").value},scores,total,category:label};
+ document.getElementById("total").textContent=total;
+ const st=document.getElementById("status");st.textContent=label;st.className="status "+cls;
+ document.getElementById("overallbar").style.width=total+"%";
+ document.getElementById("interpretation").textContent=interp;
+ document.getElementById("breakdown").innerHTML=scores.map(s=>`<div class="result-row"><b>${s.title}</b><div class="scoreline"><strong>${s.score}/5</strong><div class="bar" style="flex:1"><span style="width:${s.score*20}%"></span></div></div><p>${s.evidence||"Belum ada bukti/alasan yang dicatat."}</p></div>`).join("");
+ const sorted=[...scores].sort((a,b)=>a.score-b.score);
+ document.getElementById("priorities").innerHTML=sorted.map((s,i)=>`<div class="result-row"><b>${i+1}. ${s.title} — skor ${s.score}/5</b><p>${s.recommendation}</p></div>`).join("");
+ const r=document.getElementById("result");r.style.display="block";r.scrollIntoView({behavior:"smooth"});
+});
+document.getElementById("reset").addEventListener("click",()=>{document.getElementById("result").style.display="none";latest=null;});
+document.getElementById("download").addEventListener("click",()=>{
+ if(!latest)return;const blob=new Blob([JSON.stringify(latest,null,2)],{type:"application/json"});
+ const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="hasil-assessment-kcra.json";a.click();URL.revokeObjectURL(a.href);
+});
+if("serviceWorker" in navigator && location.protocol.startsWith("http")){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));}
+</script>
+</body></html>

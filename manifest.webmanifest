@@ -1,0 +1,17 @@
+{
+  "name": "KCRA — Knowledge Commercialization Readiness Assessment",
+  "short_name": "KCRA Assessment",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f3f7fa",
+  "theme_color": "#123b5d",
+  "description": "Assessment kesiapan hilirisasi pengetahuan hasil penelitian.",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
